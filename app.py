@@ -4,7 +4,18 @@ from werkzeug.utils import secure_filename
 from markitdown import MarkItDown
 
 UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), "uploads")
-ALLOWED_EXTENSIONS = {"pdf"}
+ALLOWED_EXTENSIONS = {
+    "pdf",
+    "pptx", "ppt",
+    "docx", "doc",
+    "xlsx", "xls",
+    "jpg", "jpeg", "png", "gif", "bmp", "tiff", "webp",
+    "mp3", "wav", "m4a", "ogg", "flac",
+    "html", "htm",
+    "csv", "json", "xml",
+    "zip",
+    "epub",
+}
 
 app = Flask(__name__)
 app.secret_key = "markitdown-secret-key"
@@ -34,7 +45,7 @@ def upload():
         return redirect(url_for("index"))
 
     if not allowed_file(file.filename):
-        flash("Only PDF files are accepted.", "error")
+        flash("Unsupported file type.", "error")
         return redirect(url_for("index"))
 
     filename = secure_filename(file.filename)

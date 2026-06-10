@@ -19,6 +19,10 @@ python app.py
 
 Then open `http://localhost:5000`, upload a PDF, and download the Markdown.
 
+## Supported formats
+
+PDF, Word, Excel, PowerPoint, Images, Audio, HTML, CSV, JSON, XML, ZIP, EPUB — anything [MarkItDown](https://github.com/microsoft/markitdown) handles.
+
 ## Limits
 
-- PDF files only, up to 50 MB
+- Up to 50 MB per file
