@@ -1,28 +1,34 @@
-# PDF to Markdown Converter
+# Document to Markdown Converter
 
-A simple web app that converts PDF files into clean Markdown — built so you can feed documents to any LLM (Claude, ChatGPT, or any other) using far fewer tokens than pasting raw PDF text.
+A lightweight Flask web app that converts documents into clean Markdown — so you can paste them into Claude, ChatGPT, or any LLM and use as few tokens as possible.
 
-## Why
-
-PDFs are token-heavy when dumped as plain text. Converting to Markdown first strips the noise and gives you structured, compact content that LLMs handle well.
+Raw files like PDFs or Word docs are token-heavy when fed directly to an LLM. Converting them to Markdown first gives you the same content in a leaner, structured format that models read well.
 
 ## How it works
 
-Upload a PDF through the browser, and it comes back as a `.md` file — ready to paste into Claude, ChatGPT, or whichever model you're using. Conversion is handled entirely by the [`markitdown`](https://github.com/microsoft/markitdown) Python library. No external APIs, no LLM calls, no cost.
+1. Open the app in your browser
+2. Upload any supported file
+3. Get a `.md` file back — ready to copy into any LLM
 
-## Usage
+Conversion is done entirely by the [MarkItDown](https://github.com/microsoft/markitdown) Python library. No external APIs, no LLM calls, no cost.
+
+## Supported formats
+
+| Category | Formats |
+|---|---|
+| Documents | PDF, Word (.docx), Excel (.xlsx), PowerPoint (.pptx) |
+| Images | JPG, PNG, GIF, BMP, TIFF, WEBP |
+| Audio | MP3, WAV, M4A, OGG, FLAC |
+| Web & Data | HTML, CSV, JSON, XML |
+| Other | ZIP, EPUB |
+
+## Getting started
 
 ```bash
 pip install flask "markitdown[all]"
 python app.py
 ```
 
-Then open `http://localhost:5000`, upload a PDF, and download the Markdown.
+Then visit `http://localhost:5000`.
 
-## Supported formats
-
-PDF, Word, Excel, PowerPoint, Images, Audio, HTML, CSV, JSON, XML, ZIP, EPUB — anything [MarkItDown](https://github.com/microsoft/markitdown) handles.
-
-## Limits
-
-- Up to 50 MB per file
+> Max file size: 50 MB
