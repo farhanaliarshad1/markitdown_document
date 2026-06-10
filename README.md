@@ -13,7 +13,7 @@ Upload a PDF through the browser, and it comes back as a `.md` file — ready to
 ## Usage
 
 ```bash
-pip install flask markitdown
+pip install flask "markitdown[all]"
 python app.py
 ```
 
